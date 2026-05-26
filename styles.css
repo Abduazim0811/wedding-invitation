@@ -89,6 +89,7 @@ a {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 28%;
 }
 
 .lock-shade,
@@ -329,7 +330,7 @@ a {
   border-radius: 28px;
   background:
     linear-gradient(180deg, rgba(7, 7, 8, 0.04), rgba(7, 7, 8, 0.68)),
-    url("assets/wedding-hero.png") center / cover;
+    url("assets/couple-bg.png") center 28% / cover;
   box-shadow: var(--shadow);
   content: "";
 }
