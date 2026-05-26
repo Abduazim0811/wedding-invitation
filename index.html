@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Farrux va Gulmiraning to'y marosimiga taklifnoma."
+    />
+    <title>Farrux & Gulmira | Taklifnoma</title>
+    <link rel="preload" href="assets/reel-bg.png" as="image" />
+    <link rel="preload" href="assets/calendar-bg.png" as="image" />
+    <link rel="preload" href="assets/venue-bg.png" as="image" />
+    <link rel="stylesheet" href="styles.css?v=20260525e" />
+  </head>
+  <body class="is-locked">
+    <section class="lock-screen" id="lockScreen" aria-labelledby="lockTitle">
+      <img
+        class="lock-bg"
+        src="assets/reel-bg.png"
+        alt="Oq atirgul guldastasi va kelin libosi fonida to'y kayfiyati"
+      />
+      <div class="lock-shade" aria-hidden="true"></div>
+      <div class="language-switch lock-langs" aria-label="Til tanlash">
+        <button class="is-active" type="button" data-lang-button="uz">UZ</button>
+        <button type="button" data-lang-button="ru">RU</button>
+      </div>
+      <div class="lock-card">
+        <div class="lock-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24">
+            <path d="M7 10V7a5 5 0 0 1 10 0v3" />
+            <rect x="5" y="10" width="14" height="11" rx="2" />
+            <path d="M12 15v2" />
+          </svg>
+        </div>
+        <p class="kicker" data-i18n="lockKicker">Maxsus taklifnoma</p>
+        <h1 id="lockTitle" data-i18n="lockTitle">Sizga taklifnoma keldi</h1>
+        <p data-i18n="lockText">
+          Qulfni oching va to'y oqshomimizga bag'ishlangan taklifnomani ko'ring.
+        </p>
+        <button class="primary-button open-button" id="openInvite" type="button">
+          <span data-i18n="openInvite">Qulfni ochish</span>
+        </button>
+      </div>
+    </section>
+
+    <main class="story-app" id="storyApp" aria-hidden="true">
+      <img class="story-bg" src="assets/reel-bg.png" alt="" aria-hidden="true" />
+      <div class="story-shade" aria-hidden="true"></div>
+
+      <header class="story-header" aria-label="Taklifnoma boshqaruvlari">
+        <button
+          class="icon-button"
+          id="musicToggle"
+          type="button"
+          aria-label="Musiqani yoqish"
+          aria-pressed="false"
+        >
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M9 18V5l11-2v13" />
+            <circle cx="6" cy="18" r="3" />
+            <circle cx="17" cy="16" r="3" />
+          </svg>
+        </button>
+
+        <div class="progress" aria-hidden="true">
+          <span class="is-active"></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+
+        <div class="language-switch" aria-label="Til tanlash">
+          <button class="is-active" type="button" data-lang-button="uz">UZ</button>
+          <button type="button" data-lang-button="ru">RU</button>
+        </div>
+      </header>
+
+      <div class="slides" id="slides">
+        <section class="story-panel panel-intro" data-step="0" aria-labelledby="introTitle">
+          <div class="story-content intro-content">
+            <div class="intro-copy">
+              <p data-i18n="introKicker">To'y taklifnomasi</p>
+              <h1 id="introTitle">
+                <span data-name="groom">Farrux</span>
+                <small data-i18n="and">va</small>
+                <span data-name="bride">Gulmira</span>
+              </h1>
+              <p data-i18n="introText">
+                Quvonchli kunimizda aziz mehmonimiz bo'lishingizni intizorlik
+                bilan kutamiz.
+              </p>
+            </div>
+            <div class="swipe-note">
+              <span data-i18n="swipe">Pastga suring</span>
+              <i aria-hidden="true"></i>
+            </div>
+          </div>
+        </section>
+
+        <section class="story-panel panel-calendar" data-step="1" aria-labelledby="calendarTitle">
+          <div class="story-card calendar-card">
+            <p class="panel-text" data-i18n="calendarLead">
+              Quvonchli kunimizda aziz mehmonimiz bo'lishingizni intizorlik
+              bilan kutamiz.
+            </p>
+            <h2 id="calendarTitle" class="calendar-title">IYUL 2026</h2>
+            <div class="calendar-grid" id="calendarGrid" aria-label="To'y sanasi"></div>
+            <div class="date-chip">
+              <strong id="weddingDay">07</strong>
+              <span id="weddingDateText">iyul, 18:00</span>
+            </div>
+            <button class="panel-button" type="button" id="calendarButton">
+              <span data-i18n="calendarButton">Kalendarga qo'shish</span>
+            </button>
+          </div>
+          <button class="next-button" type="button" data-next>
+            <span data-i18n="next">Keyingisi</span>
+          </button>
+        </section>
+
+        <section class="story-panel panel-location" data-step="2" aria-labelledby="venueTitle">
+          <div class="story-card location-card">
+            <section class="venue-block">
+              <h2 id="venueTitle">
+                Shoxona restorani <span class="venue-emoji" aria-hidden="true">💒</span><br />
+                <span data-i18n="venueType">Restoran</span>
+              </h2>
+              <p><span data-i18n="timeLabel">Vaqti:</span> <strong id="venueTime">18:00</strong></p>
+              <p id="venueAddress">Manzil: 439C+76Q, M-34, Yangiyo'l, Toshkent viloyati</p>
+              <a class="panel-button outline" id="yandexLink" href="#" target="_blank" rel="noreferrer">
+                Yandex xaritasi
+              </a>
+              <a class="panel-button outline" id="googleLink" href="#" target="_blank" rel="noreferrer">
+                Google Maps
+              </a>
+            </section>
+
+            <section class="reply-block">
+              <h2 data-i18n="replyTitle">Kelishingizni bildiring</h2>
+              <label>
+                <span data-i18n="nameLabel">Ismingiz</span>
+                <input id="guestName" type="text" autocomplete="name" />
+              </label>
+              <label>
+                <span data-i18n="guestLabel">Mehmonlar soni</span>
+                <select id="guestCount">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4+">4+</option>
+                </select>
+              </label>
+              <button class="panel-button" id="whatsappButton" type="button">
+                WhatsApp
+              </button>
+            </section>
+
+            <section class="gift-block" aria-labelledby="giftTitle">
+              <h2 id="giftTitle" data-i18n="giftTitle">To'yona</h2>
+              <p data-i18n="giftText">
+                Istasangiz, to'yonani karta orqali yuborishingiz mumkin.
+              </p>
+              <div class="gift-card">
+                <span data-i18n="giftReceiverLabel">Qabul qiluvchi</span>
+                <strong id="giftReceiver">Farrux</strong>
+                <span data-i18n="giftCardLabel">Karta raqami</span>
+                <button class="card-number" id="giftCopyButton" type="button">
+                  <span id="giftCardNumber">8600 0000 0000 0000</span>
+                </button>
+              </div>
+              <p class="copy-note" id="copyNote" aria-live="polite"></p>
+            </section>
+          </div>
+          <button class="next-button" type="button" data-next>
+            <span data-i18n="next">Keyingisi</span>
+          </button>
+        </section>
+
+        <section class="story-panel panel-countdown" data-step="3" aria-labelledby="countdownTitle">
+          <div class="story-card countdown-card">
+            <section class="final-countdown" aria-live="polite">
+              <p id="countdownTitle" data-i18n="countdownPhrase">Baxtli kunimizgacha qoldi</p>
+              <div class="countdown-grid">
+                <div class="countdown-cell">
+                  <strong data-countdown-value="days">00</strong>
+                  <span data-i18n="countDays">kun</span>
+                </div>
+                <div class="countdown-cell">
+                  <strong data-countdown-value="hours">00</strong>
+                  <span data-i18n="countHours">soat</span>
+                </div>
+                <div class="countdown-cell">
+                  <strong data-countdown-value="minutes">00</strong>
+                  <span data-i18n="countMinutes">daq</span>
+                </div>
+                <div class="countdown-cell">
+                  <strong data-countdown-value="seconds">00</strong>
+                  <span data-i18n="countSeconds">soniya</span>
+                </div>
+              </div>
+            </section>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script src="script.js?v=20260525f"></script>
+  </body>
+</html>
