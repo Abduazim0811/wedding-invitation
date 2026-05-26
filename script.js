@@ -26,11 +26,11 @@ const invite = {
   gift: {
     uz: {
       receiver: "Farrux",
-      cardNumber: "8600 0000 0000 0000",
+      cardNumber: "9860 6067 4325 0932",
     },
     ru: {
       receiver: "Гульмира",
-      cardNumber: "9860 0000 0000 0000",
+      cardNumber: "2202205385544959",
     },
   },
   whatsappPhone: "998901234567",
