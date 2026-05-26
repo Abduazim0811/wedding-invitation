@@ -347,14 +347,38 @@ let masterGain;
 let musicTimer;
 let musicEnabled = false;
 
-function playNote(frequency, startAt, duration) {
+const musicBeat = 0.48;
+const musicLoopSeconds = musicBeat * 20;
+const melodyNotes = [
+  { frequency: 392, beat: 0, duration: 1.6 },
+  { frequency: 493.88, beat: 2, duration: 1 },
+  { frequency: 523.25, beat: 3, duration: 1 },
+  { frequency: 587.33, beat: 4, duration: 1.6 },
+  { frequency: 659.25, beat: 6, duration: 1 },
+  { frequency: 587.33, beat: 7, duration: 1 },
+  { frequency: 523.25, beat: 8, duration: 1.4 },
+  { frequency: 493.88, beat: 10, duration: 1.4 },
+  { frequency: 440, beat: 12, duration: 1 },
+  { frequency: 493.88, beat: 13, duration: 1 },
+  { frequency: 523.25, beat: 14, duration: 1.4 },
+  { frequency: 392, beat: 16, duration: 2.4 },
+];
+const harmonyNotes = [
+  { frequencies: [196, 246.94, 293.66], beat: 0, duration: 3.5 },
+  { frequencies: [174.61, 261.63, 329.63], beat: 4, duration: 3.5 },
+  { frequencies: [196, 261.63, 329.63], beat: 8, duration: 3.5 },
+  { frequencies: [220, 293.66, 369.99], beat: 12, duration: 3.5 },
+  { frequencies: [196, 246.94, 293.66], beat: 16, duration: 3.5 },
+];
+
+function playNote(frequency, startAt, duration, volume = 0.08, type = "sine") {
   const oscillator = audioContext.createOscillator();
   const gain = audioContext.createGain();
 
-  oscillator.type = "sine";
-  oscillator.frequency.value = frequency;
-  gain.gain.setValueAtTime(0, startAt);
-  gain.gain.linearRampToValueAtTime(0.11, startAt + 0.04);
+  oscillator.type = type;
+  oscillator.frequency.setValueAtTime(frequency, startAt);
+  gain.gain.setValueAtTime(0.0001, startAt);
+  gain.gain.linearRampToValueAtTime(volume, startAt + 0.08);
   gain.gain.exponentialRampToValueAtTime(0.001, startAt + duration);
   oscillator.connect(gain);
   gain.connect(masterGain);
@@ -362,16 +386,24 @@ function playNote(frequency, startAt, duration) {
   oscillator.stop(startAt + duration + 0.04);
 }
 
+function playChord(frequencies, startAt, duration) {
+  frequencies.forEach((frequency, index) => {
+    playNote(frequency, startAt + index * 0.015, duration, 0.025, "triangle");
+  });
+}
+
 function scheduleMusic() {
   if (!audioContext || !musicEnabled) {
     return;
   }
 
-  const now = audioContext.currentTime;
-  const notes = [392, 493.88, 587.33, 659.25, 587.33, 493.88];
+  const now = audioContext.currentTime + 0.04;
 
-  notes.forEach((note, index) => {
-    playNote(note, now + index * 0.44, 0.72);
+  harmonyNotes.forEach((note) => {
+    playChord(note.frequencies, now + note.beat * musicBeat, note.duration * musicBeat);
+  });
+  melodyNotes.forEach((note) => {
+    playNote(note.frequency, now + note.beat * musicBeat, note.duration * musicBeat, 0.07);
   });
 }
 
@@ -385,7 +417,7 @@ function startMusic() {
   if (!audioContext) {
     audioContext = new AudioCtor();
     masterGain = audioContext.createGain();
-    masterGain.gain.value = 0.08;
+    masterGain.gain.value = 0.11;
     masterGain.connect(audioContext.destination);
   }
 
@@ -393,7 +425,7 @@ function startMusic() {
   musicEnabled = true;
   window.clearInterval(musicTimer);
   scheduleMusic();
-  musicTimer = window.setInterval(scheduleMusic, 2800);
+  musicTimer = window.setInterval(scheduleMusic, musicLoopSeconds * 1000);
   $("#musicToggle").classList.add("is-playing");
   $("#musicToggle").setAttribute("aria-pressed", "true");
   $("#musicToggle").setAttribute("aria-label", text("musicOff"));
