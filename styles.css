@@ -708,13 +708,6 @@ html[lang="ru"] .intro-copy h1 {
   text-transform: uppercase;
 }
 
-.venue-emoji {
-  display: inline-block;
-  font-family: "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
-  font-size: 0.74em;
-  vertical-align: 0.04em;
-}
-
 .venue-block p,
 .reply-block label,
 .gift-block p {
