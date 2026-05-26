@@ -370,12 +370,20 @@ a {
 
 .countdown-card {
   display: grid;
-  min-height: min(72svh, 620px);
+  max-height: min(84svh, 820px);
+  min-height: min(72svh, 680px);
   place-items: center;
-  padding: 34px 24px;
+  gap: 16px;
+  padding: 24px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.78), rgba(246, 239, 248, 0.92)),
     url("assets/calendar-bg.png") center / cover;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.countdown-card::-webkit-scrollbar {
+  width: 0;
 }
 
 .intro-copy {
@@ -571,10 +579,10 @@ html[lang="ru"] .intro-copy h1 {
   display: grid;
   width: min(100%, 640px);
   margin: 0;
-  padding: 24px 22px;
+  padding: 20px 22px;
   border-radius: 26px;
   background: rgba(255, 255, 255, 0.82);
-  gap: 18px;
+  gap: 14px;
   justify-items: center;
 }
 
@@ -593,7 +601,7 @@ html[lang="ru"] .intro-copy h1 {
 .panel-countdown .final-countdown p {
   flex: none;
   width: min(100%, 560px);
-  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-size: clamp(1.55rem, 3.2vw, 2.55rem);
   text-align: center;
   text-wrap: balance;
 }
@@ -606,6 +614,43 @@ html[lang="ru"] .intro-copy h1 {
 .panel-countdown .final-countdown .countdown-grid {
   width: min(100%, 460px);
   min-width: 0;
+}
+
+.family-message {
+  width: min(100%, 720px);
+  padding: 20px 22px;
+  border: 1px solid rgba(180, 40, 76, 0.14);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 38px rgba(64, 50, 66, 0.1);
+  text-align: center;
+}
+
+.family-message h2 {
+  margin: 0 0 10px;
+  color: #6d2740;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.45rem, 3vw, 2.35rem);
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.family-message p {
+  margin: 0 auto 12px;
+  width: min(100%, 640px);
+  color: #51454e;
+  font-size: clamp(0.9rem, 1.45vw, 1.05rem);
+  font-weight: 600;
+  line-height: 1.55;
+  white-space: pre-line;
+}
+
+.family-message strong {
+  display: block;
+  color: #6d2740;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1rem, 2vw, 1.35rem);
+  font-weight: 500;
 }
 
 .countdown-cell {
@@ -862,6 +907,21 @@ html[lang="ru"] .intro-copy h1 {
     min-width: 0;
   }
 
+  .countdown-card {
+    max-height: 84svh;
+    padding: 16px 14px;
+  }
+
+  .family-message {
+    padding: 16px 14px;
+    border-radius: 18px;
+  }
+
+  .family-message p {
+    font-size: 0.82rem;
+    line-height: 1.48;
+  }
+
   .swipe-note {
     bottom: 28px;
   }
@@ -891,6 +951,17 @@ html[lang="ru"] .intro-copy h1 {
 
   .intro-copy p[data-i18n="introText"] {
     font-size: 1.12rem;
+  }
+
+  .countdown-card {
+    max-height: 82svh;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .family-message p {
+    font-size: 0.85rem;
+    line-height: 1.45;
   }
 
   .swipe-note {

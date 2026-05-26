@@ -58,6 +58,10 @@ const translations = {
     countMinutes: "daq",
     countSeconds: "soniya",
     countdownPhrase: "Baxtli kunimizgacha qoldi",
+    familyMessageTitle: "Azizlarim, eng yaqin insonlarim!",
+    familyMessage:
+      "Qalbimizning eng go‘zal, eng yorug‘ lahzasida sizlarni yonimizda his qilish — biz uchun katta baxt. Shu muborak kunda sizning duolaringiz, tabassumingiz va mehr-muhabbatingiz bizga eng kuchli tayanch bo‘ladi.\n\nSizni unutilmas lahzalarga taklif qilamiz. Yiroqda bo‘lsangiz ham qalbimiz siz bilan — shuning uchun bu taklifnoma sizga yetib kelishini juda istardik.\n\nIltimos, taklifnomani ko‘rib chiqing va kelish imkoniyatingiz haqida bizga xabar bering.\n\nSizni kutib qolamiz — sevgi va hurmat bilan.",
+    familySignature: "Yakubjanovlar oilasi",
     venueType: "Restoran",
     timeLabel: "Vaqti:",
     replyTitle: "Kelishingizni bildiring",
@@ -114,6 +118,10 @@ const translations = {
     countMinutes: "мин",
     countSeconds: "сек",
     countdownPhrase: "До нашего счастливого дня",
+    familyMessageTitle: "Дорогие наши, самые близкие нам люди!",
+    familyMessage:
+      "В самый прекрасный и светлый момент нашей жизни чувствовать вас рядом - большое счастье для нас. В этот благословенный день ваши молитвы, улыбки и любовь станут для нас самой сильной поддержкой.\n\nМы приглашаем вас разделить с нами незабываемые мгновения. Даже если вы далеко, наши сердца рядом с вами - поэтому нам очень хотелось, чтобы это приглашение дошло до вас.\n\nПожалуйста, просмотрите приглашение и сообщите нам, сможете ли вы прийти.\n\nБудем ждать вас - с любовью и уважением.",
+    familySignature: "Семья Якубжановых",
     venueType: "Ресторан",
     timeLabel: "Время:",
     replyTitle: "Подтвердите участие",
